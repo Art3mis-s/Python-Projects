@@ -6,8 +6,8 @@ def main():
     # trying to open the file
     try:
         # opening the file in read mode
-        file = open(sys.argv[1], "r")
-        lines = file.readlines()
+        with open(sys.argv[1], "r") as file:
+            lines = file.readlines()
     # if it can't open this means that the file does not exist
     except FileNotFoundError:
         sys.exit("File does not exist")
@@ -16,7 +16,7 @@ def main():
     for line in lines:
         if check_comment_or_empty_line(line) == False:
             count_lines += 1
-            print(count_lines)
+    print(count_lines)
 
 # Funciton to check the command line arguments
 def check_command_line_arg():
