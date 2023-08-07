@@ -31,6 +31,10 @@ def is_valid(s):
         #At the end of each iteration of the loop, the variable 'i' is incremented by 1 to move to the next character in the string 's'.
         i += 1
 
+    for i in range(len(s)):
+        if s[i].isdigit():
+            if not s[i:].isdigit():
+                return False         
     # no periods, spaces, or punctuation marks are allowed
     for c in s:
         if c in ['.', ' ', '!', '?']:
@@ -39,4 +43,5 @@ def is_valid(s):
     # if we pass all the tests, then return True
     return True
 
-main()
+if __name__ == "__main__":
+    main()
